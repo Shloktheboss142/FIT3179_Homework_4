@@ -39,7 +39,7 @@
             "lookup": "properties.NAME",
             "from": {
               "data": {
-                "url": "https://github.com/Shloktheboss142/FIT3179_Homework_4/blob/main/data/Renewable.csv"
+                "url": "https://raw.githubusercontent.com/Shloktheboss142/FIT3179_Homework_4/main/data/mapData.csv"
               },
               "key": "LOCATION",
               "fields": ["Value"]
