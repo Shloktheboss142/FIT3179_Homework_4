@@ -1,0 +1,26 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Stock prices of 5 Tech Companies over Time.",
+    "data": {"url": "https://raw.githubusercontent.com/Shloktheboss142/FIT3179_Homework_4/main/dataForScatter.csv"},
+    "mark": "line",
+    "params": [
+        {
+          "name": "Country",
+          "select": {"type": "point", "fields": ["LOCATION"]},
+          "bind": {"LOCATION": {"input": "select", "options": ["Australia", "Malaysia", "China", "Netherlands", "India", "Indonesia", "Zimbabwe", "Japan", "Sweden", "United States"]}}
+        }
+    ],
+    "transform": [
+        {"filter": {"param": "Country", "field": "LOCATION"}}
+      ],
+  "encoding": {
+    "x": {"field": "TIME", "type": "ordinal", "title": "Year"},
+    "y": {"field": "Value", "type": "quantitative", "title": "Renewable Energy (KTOE)"},
+    "color": {"field": "LOCATION", "type": "nominal", "title": "Country"},
+    "tooltip": [
+      {"field": "LOCATION", "type": "nominal"},
+      {"field": "TIME", "type": "ordinal"},
+      {"field": "Value", "type": "quantitative"}
+    ]
+  }
+}
