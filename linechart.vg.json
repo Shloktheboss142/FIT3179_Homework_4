@@ -1,5 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 700,
+    "height": 600,
     "description": "Stock prices of 5 Tech Companies over Time.",
     "data": {"url": "https://raw.githubusercontent.com/Shloktheboss142/FIT3179_Homework_4/main/dataForScatter.csv"},
     "mark": "line",
@@ -7,7 +9,7 @@
         {
           "name": "Country",
           "select": {"type": "point", "fields": ["LOCATION"]},
-          "bind": {"LOCATION": {"input": "select", "options": ["Australia", "Malaysia", "China", "Netherlands", "India", "Indonesia", "Zimbabwe", "Japan", "Sweden", "United States"]}}
+          "bind": {"LOCATION": {"input": "select", "options": [null, "Australia", "Malaysia", "China", "Netherlands", "India", "Indonesia", "Zimbabwe", "Japan", "Sweden", "United States"], "labels": ["All", "Australia", "Malaysia", "China", "Netherlands", "India", "Indonesia", "Zimbabwe", "Japan", "Sweden", "United States"], "name": "Country Selection: "}}
         }
     ],
     "transform": [
