@@ -5,7 +5,7 @@
   "height": "400",
   "description": "Stock prices of 5 Tech Companies over Time.",
   "data": {
-    "url": "https://raw.githubusercontent.com/Shloktheboss142/FIT3179_Homework_4/main/dataForScatter.csv"
+    "url": "https://raw.githubusercontent.com/Shloktheboss142/FIT3179_Homework_4/main/data/lineData.csv"
   },
   "layer": [
     {
