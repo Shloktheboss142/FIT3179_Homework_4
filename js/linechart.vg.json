@@ -1,0 +1,100 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Renewable Energy Generated From 2010 to 2021 (in KTOE)",
+  "width": "container",
+  "height": "400",
+  "description": "Stock prices of 5 Tech Companies over Time.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/Shloktheboss142/FIT3179_Homework_4/main/dataForScatter.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "interpolate": "monotone"
+      },
+      "params": [
+        {
+          "name": "Country",
+          "select": { "type": "point", "fields": ["LOCATION"] },
+          "bind": {
+            "LOCATION": {
+              "input": "select",
+              "options": [
+                null,
+                "Australia",
+                "Malaysia",
+                "China",
+                "India",
+                "Indonesia",
+                "United States"
+              ],
+              "labels": [
+                "All",
+                "Australia",
+                "Malaysia",
+                "China",
+                "India",
+                "Indonesia",
+                "United States"
+              ],
+              "name": "Country Selection: "
+            }
+          }
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 75
+      }
+    },
+    {
+      "transform": [{ "filter": { "field": "TIME", "oneOf": ["2021"] } }],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 7
+      },
+      "encoding": {
+        "x": { "field": "TIME", "type": "ordinal" },
+        "y": { "field": "Value", "type": "quantitative" },
+        "text": { "field": "LOCATION", "type": "nominal" }
+      }
+    }
+  ],
+  "transform": [{ "filter": { "param": "Country", "field": "LOCATION" } }],
+  "encoding": {
+    "x": {
+      "field": "TIME",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": { "labelAngle": 0, "labelAlign": "center" }
+    },
+    "y": {
+      "field": "Value",
+      "type": "quantitative",
+      "title": "Renewable Energy (KTOE)"
+    },
+    "color": {
+      "field": "LOCATION",
+      "type": "nominal",
+      "title": "Country",
+      "legend": { "orient": "none", "legendX": 10, "legendY": 5 }
+    },
+    "tooltip": [
+      { "field": "LOCATION", "type": "nominal", "title": "Country" },
+      { "field": "TIME", "type": "ordinal", "title": "Year" },
+      {
+        "field": "Value",
+        "type": "quantitative",
+        "format": ".0f",
+        "title": "Energy Generated (KTOE)"
+      }
+    ]
+  },
+  "config": {}
+}
